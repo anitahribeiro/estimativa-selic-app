@@ -1,0 +1,50 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  
+  <div class="container mb20 mt20">
+    <div class="row">
+      <div class="col-sm">
+        <h3 class="mb20">
+           Estimativas Selic
+        </h3>
+    </div>      
+  </div>
+</div>
+
+  <div class="container mb20">
+    <div class="row">
+      <div class="col-sm">
+        <select class="form-control form-control-sm">
+          <option>Ano</option>
+        </select>
+      </div>
+      <div class="col-sm">
+        <select class="form-control form-control-sm" ngModel #filtroMes>
+          <option>Mês</option>
+        </select>
+      </div>
+      <div class="col-sm text-left">
+          <button type="button" class="btn btn-sm btn-secondary">Filtrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <table class="table table-hover thead-light">
+        <thead>
+          <tr>
+            <th scope="col">Mês/Ano</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of taxas">
+            <td>{{t.mes_referencia}}</td>
+            <td>{{t.estimativa_taxa_selic}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
