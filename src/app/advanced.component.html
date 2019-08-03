@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm">
         <h3 class="mb20">
-           Médias e Acumulados das Taxas Selic por Ano
+           Média das Taxas Selic por Ano
         </h3>
     </div>      
   </div>
@@ -17,13 +17,45 @@
         <thead>
           <tr>
             <th scope="col">Ano</th>
-            <th scope="col"></th>
+            <th scope="col">Taxa Média</th>
           </tr>
         </thead>
         <tbody>
         <tr *ngFor="let m of medias">
-            <td>{{m.ano_referencia}</td>
+            <td>{{m.ano_referencia}}</td>
             <td>{{m.taxa_media}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center">
+  
+  <div class="container mb20 mt20">
+    <div class="row">
+      <div class="col-sm">
+        <h3 class="mb20">
+           Acumulados das Taxas Selic por Ano
+        </h3>
+    </div>      
+  </div>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <table class="table table-hover thead-light">
+        <thead>
+          <tr>
+            <th scope="col">Ano</th>
+            <th scope="col">Taxa Acumulada</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let a of acumulado">
+            <td>{{a.ano_referencia}}</td>
+            <td>{{a.taxa_acumulada}}</td>
           </tr>
         </tbody>
       </table>
