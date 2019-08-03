@@ -4,14 +4,14 @@ import { ConfigService } from './config/config.service';
 
 @Component({
   selector: 'history',
-  templateUrl: './history.component.html'
+  templateUrl: './history.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class HistoryComponent implements OnInit {
 
   title = 'selic';
-  private taxas;
-
+ 
   private taxas;
 
   private anos = ['2007','2008','2009','2009','2010','2011','2012','2013','2014','2015','2016','2017'];

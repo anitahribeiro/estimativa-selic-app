@@ -5,7 +5,7 @@ import { ConfigService } from './config/config.service';
 @Component({
   selector: 'app-daniel',
   templateUrl: './advanced.component.html',
-  styleUrls: ['./advanced.component.css']
+    styleUrls: ['./app.component.css']
 })
 export class AdvancedComponent implements OnInit {
 
