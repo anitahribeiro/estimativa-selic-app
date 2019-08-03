@@ -1,0 +1,54 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  
+  <div class="container mb20 mt20">
+    <div class="row">
+      <div class="col-sm">
+        <h3 class="mb20">
+           Histórico de Estimativas da Taxa Selic
+        </h3>
+    </div>      
+  </div>
+</div>
+
+  <div class="container mb20">
+    <div class="row">
+      <div class="col-sm">
+        <select class="form-control form-control-sm" id="yearFilter">
+          <option value="0">Ano</option>
+          <option *ngFor="let ano of anos">{{ano}}</option>
+          
+        </select>
+      </div>
+      <div class="col-sm">
+        <select class="form-control form-control-sm" id="monthFilter">
+          <option value="0">Mês</option>
+          <option *ngFor="let mes of meses" [value]="mes.id">{{mes.nome}}</option>
+          
+        </select>
+      </div>
+      <div class="col-sm text-left">
+          <button type="button" class="btn btn-sm btn-secondary" (click)="filter()">Filtrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <table class="table table-hover thead-light">
+        <thead>
+          <tr>
+            <th scope="col">Mês/Ano</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let t of taxas">
+            <td>{{t.mes_referencia}}</td>
+            <td>{{t.estimativa_taxa_selic}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
