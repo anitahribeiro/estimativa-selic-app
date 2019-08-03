@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm">
         <h3 class="mb20">
-           Estimativas Selic
+           Histórico de Estimativas da Taxa Selic
         </h3>
     </div>      
   </div>
@@ -14,17 +14,21 @@
   <div class="container mb20">
     <div class="row">
       <div class="col-sm">
-        <select class="form-control form-control-sm">
-          <option>Ano</option>
+        <select class="form-control form-control-sm" id="yearFilter">
+          <option value="0">Ano</option>
+          <option *ngFor="let ano of anos">{{ano}}</option>
+          
         </select>
       </div>
       <div class="col-sm">
-        <select class="form-control form-control-sm" ngModel #filtroMes>
-          <option>Mês</option>
+        <select class="form-control form-control-sm" id="monthFilter">
+          <option value="0">Mês</option>
+          <option *ngFor="let mes of meses" [value]="mes.id">{{mes.nome}}</option>
+          
         </select>
       </div>
       <div class="col-sm text-left">
-          <button type="button" class="btn btn-sm btn-secondary">Filtrar</button>
+          <button type="button" class="btn btn-sm btn-secondary" (click)="filter()">Filtrar</button>
       </div>
     </div>
   </div>
@@ -39,10 +43,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let t of taxas">
+        <tr *ngFor="let t of taxas">
             <td>{{t.mes_referencia}}</td>
             <td>{{t.estimativa_taxa_selic}}</td>
-          </tr>
+        </tr>
         </tbody>
       </table>
     </div>

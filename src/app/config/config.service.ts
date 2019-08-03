@@ -9,14 +9,30 @@ export class ConfigService {
 	private actionUrl: string;
 
   constructor(private http: HttpClient) {
-  	this.actionUrl = 'http://localhost:8080/api/v1/selic/estimativas?ano=2017';
+  	this.actionUrl = 'http://localhost:8080/api/v1/selic';
    }
 
-   public get<T>(): Observable<T> {
-        return this.http.get<T>(this.actionUrl);
+   public get<T>(year, month): Observable<T> {
+        
+      var endpoint = '/estimativas';
+      var params = '?ano=' + year;
+      if (month != 0) {
+          params += '&mes=' + month;
+      }
+      return this.http.get<T>(this.actionUrl + endpoint + params);
     }
-}
 
+    public getHistory<T>(): Observable<T> {
+        var endpoint = '/historico';
+        return this.http.get<T>(this.actionUrl + endpoint);
+    }
+
+    public getAverage<T>(): Observable<T> {
+        var endpoint = '/media';
+        return this.http.get<T>(this.actionUrl + endpoint);
+    }
+
+}
 
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor {
