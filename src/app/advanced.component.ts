@@ -15,9 +15,9 @@ export class AdvancedComponent implements OnInit {
   constructor(private configService: ConfigService) { }
 
   ngOnInit() {
-        //return this.configService.getAverage().subscribe(
-          //medias => { this.medias = medias;}
-        //); 
+        return this.configService.getAverage().subscribe(
+          medias => { this.medias = medias;}
+        ); 
   }
 
 }

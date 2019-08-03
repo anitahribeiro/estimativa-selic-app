@@ -32,6 +32,11 @@ export class ConfigService {
         return this.http.get<T>(this.actionUrl + endpoint);
     }
 
+    public getCumulative<T>(): Observable<T> {
+        var endpoint = '/acumulado';
+        return this.http.get<T>(this.actionUrl + endpoint);
+    }
+
 }
 
 @Injectable()

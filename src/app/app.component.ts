@@ -64,6 +64,9 @@ export class AppComponent implements OnInit {
     },
   ];
 
+  private medias;
+  private acumulados;
+
   constructor(private configService: ConfigService) { }
 
   filter() {
@@ -78,7 +81,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-      return this.configService.getHistory().subscribe(taxas => { this.taxas = taxas;});
+      this.configService.getHistory().subscribe(taxas => { this.taxas = taxas;});
+      this.configService.getAverage().subscribe(medias => { this.medias = medias;});
+      this.configService.getCumulative().subscribe(acumulados => { this.acumulados = acumulados;});
   }
 
 }
